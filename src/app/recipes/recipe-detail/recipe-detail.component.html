@@ -1,11 +1,18 @@
 <div class="row">
   <div class="col-xs-12">
-    <img src="" alt="" class="img-responsive" />
+    <img
+      [src]="selectedRecipeDetails.imagePath"
+      alt="{{ selectedRecipeDetails.name }}"
+      class="img-responsive"
+      style="max-height: 250px"
+    />
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>Recipe Name</h1>
+    <h1>
+      {{ selectedRecipeDetails.name ?? "Recipe Name" }}
+    </h1>
   </div>
 </div>
 <div class="row">
@@ -32,11 +39,5 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    @if (selectedRecipeDetails != undefined) {
-      {{ selectedRecipeDetails.ingredients }}
-    } @else {
-      Ingredients
-    }
-  </div>
+  <div class="col-xs-12">Ingredients</div>
 </div>

@@ -5,8 +5,15 @@
     ></app-recipe-list>
   </div>
   <div class="col-md-7">
-    <app-recipe-detail
-      [selectedRecipeDetails]="selectedRecipe"
-    ></app-recipe-detail>
+    @if (selectedRecipe) {
+      <app-recipe-detail
+        [selectedRecipeDetails]="selectedRecipe"
+      ></app-recipe-detail>
+    } @else {
+      <ng-container [ngTemplateOutlet]="infoText"></ng-container>
+    }
+    <ng-template #infoText>
+      <p>Please select a Recipe!</p>
+    </ng-template>
   </div>
 </div>
