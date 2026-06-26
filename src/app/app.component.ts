@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   destination = 'Recipes';
-
-  onSelectNavigation = (data: { destination: string }) => {
-    console.log(data.destination);
-    this.destination = data.destination;
-  };
 }

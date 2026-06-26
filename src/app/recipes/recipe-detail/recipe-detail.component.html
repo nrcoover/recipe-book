@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-xs-12">
     <img
-      [src]="selectedRecipeDetails.imagePath"
-      alt="{{ selectedRecipeDetails.name }}"
+      [src]="recipe.imagePath"
+      [alt]="recipe.name"
       class="img-responsive"
       style="max-height: 250px"
     />
@@ -11,7 +11,7 @@
 <div class="row">
   <div class="col-xs-12">
     <h1>
-      {{ selectedRecipeDetails.name ?? "Recipe Name" }}
+      {{ recipe.name ?? "Recipe Name" }}
     </h1>
   </div>
 </div>
@@ -27,16 +27,16 @@
             >To Shopping List</a
           >
         </li>
-        <li><a href="#">Edit Recipe</a></li>
-        <li><a href="#">Delete Recipe</a></li>
+        <li style="cursor: pointer"><a>Edit Recipe</a></li>
+        <li style="cursor: pointer"><a>Delete Recipe</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    @if (selectedRecipeDetails != undefined) {
-      {{ selectedRecipeDetails.description }}
+    @if (recipe != undefined) {
+      {{ recipe.description }}
     } @else {
       Description
     }
@@ -45,10 +45,7 @@
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let ingredient of selectedRecipeDetails.ingredients"
-      >
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
         {{ ingredient.name }} - {{ ingredient.amount }}
       </li>
     </ul>
